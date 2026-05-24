@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Destructuring Lab - ES6 Features</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .section h3 {
+            color: #333;
+            margin: 15px 0 10px 0;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .output {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .output h4 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .result-area {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #ff9800;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 JavaScript Destructuring Lab</h1>
+        <p class="subtitle">ES6 Array & Object Destructuring - Cleaner Code, Better Readability</p>
+
+        <!-- Step 2: Array Destructuring -->
+        <div class="section">
+            <h2>📦 Step 2: Array Destructuring</h2>
+            
+            <h3>2.1 Basic Array Destructuring</h3>
+            <div class="code-block">
+                // Basic syntax<br>
+                const colors = ['red', 'green', 'blue'];<br>
+                const [first, second, third] = colors;<br>
+                console.log(first, second, third);
+            </div>
+            <button onclick="demoBasicArray()">▶ Run Basic Array Destructuring</button>
+
+            <h3>2.2 Skipping Elements</h3>
+            <div class="code-block">
+                // Skip elements using commas<br>
+                const numbers = [10, 20, 30, 40, 50];<br>
+                const [firstNum, , thirdNum, , fifthNum] = numbers;<br>
+                console.log(firstNum, thirdNum, fifthNum);
+            </div>
+            <button onclick="demoSkipArray()">▶ Run Skip Elements Demo</button>
+
+            <h3>2.3 Rest Operator with Arrays</h3>
+            <div class="code-block">
+                // Using rest operator to get remaining elements<br>
+                const fruits = ['apple', 'banana', 'orange', 'grape', 'mango'];<br>
+                const [firstFruit, secondFruit, ...restFruits] = fruits;<br>
+                console.log(firstFruit, secondFruit, restFruits);
+            </div>
+            <button onclick="demoRestArray()">▶ Run Rest Operator Demo</button>
+
+            <h3>2.4 Default Values in Arrays</h3>
+            <div class="code-block">
+                // Setting default values<br>
+                const [a = 1, b = 2, c = 3] = [10];<br>
+                console.log(a, b, c); // 10, 2, 3
+            </div>
+            <button onclick="demoDefaultArray()">▶ Run Default Values Demo</button>
+
+            <div id="arrayOutput" class="result-area"></div>
+        </div>
+
+        <!-- Step 3: Object Destructuring -->
+        <div class="section">
+            <h2>📖 Step 3: Object Destructuring</h2>
+            
+            <h3>3.1 Basic Object Destructuring</h3>
+            <div class="code-block">
+                // Basic object destructuring<br>
+                const user = { name: 'John', age: 25, city: 'New York' };<br>
+                const { name, age, city } = user;<br>
+                console.log(name, age, city);
+            </div>
+            <button onclick="demoBasicObject()">▶ Run Basic Object Destructuring</button>
+
+            <h3>3.2 Renaming Variables</h3>
+            <div class="code-block">
+                // Renaming variables during destructuring<br>
+                const product = { productName: 'Laptop', productPrice: 999 };<br>
+                const { productName: name, productPrice: price } = product;<br>
+                console.log(name, price);
+            </div>
+            <button onclick="demoRenameObject()">▶ Run Rename Variables Demo</button>
+
+            <h3>3.3 Default Values in Objects</h3>
+            <div class="code-block">
+                // Setting default values<br>
+                const person = { firstName: 'Jane' };<br>
+                const { firstName, lastName = 'Doe', age = 30 } = person;<br>
+                console.log(firstName, lastName, age);
+            </div>
+            <button onclick="demoDefaultObject()">▶ Run Default Values Demo</button>
+
+            <h3>3.4 Rest Operator with Objects</h3>
+            <div class="code-block">
+                // Using rest operator with objects<br>
+                const car = { brand: 'Toyota', model: 'Camry', year: 2022, color: 'blue' };<br>
+                const { brand, ...rest } = car;<br>
+                console.log(brand, rest);
+            </div>
+            <button onclick="demoRestObject()">▶ Run Rest Operator Demo</button>
+
+            <div id="objectOutput" class="result-area"></div>
+        </div>
+
+        <!-- Step 4: Advanced Destructuring -->
+        <div class="section">
+            <h2>🚀 Step 4: Advanced Destructuring</h2>
+            
+            <h3>4.1 Nested Array Destructuring</h3>
+            <div class="code-block">
+                // Destructuring nested arrays<br>
+                const nestedArray = [1, [2, 3], 4];<br>
+                const [a, [b, c], d] = nestedArray;<br>
+                console.log(a, b, c, d);
+            </div>
+            <button onclick="demoNestedArray()">▶ Run Nested Array Demo</button>
+
+            <h3>4.2 Nested Object Destructuring</h3>
+            <div class="code-block">
+                // Destructuring nested objects<br>
+                const employee = {<br>
+                &nbsp;&nbsp;id: 101,<br>
+                &nbsp;&nbsp;details: { name: 'Alice', position: 'Developer' },<br>
+                &nbsp;&nbsp;address: { city: 'Boston', zip: '02101' }<br>
+                };<br>
+                const { id, details: { name, position }, address: { city } } = employee;<br>
+                console.log(id, name, position, city);
+            </div>
+            <button onclick="demoNestedObject()">▶ Run Nested Object Demo</button>
+
+            <h3>4.3 Mixing Array and Object Destructuring</h3>
+            <div class="code-block">
+                // Mixing array and object destructuring<br>
+                const data = [<br>
+                &nbsp;&nbsp;{ id: 1, title: 'Book 1' },<br>
+                &nbsp;&nbsp;{ id: 2, title: 'Book 2' }<br>
+                ];<br>
+                const [firstBook, secondBook] = data;<br>
+                const { title: firstTitle } = firstBook;<br>
+                console.log(firstTitle);
+            </div>
+            <button onclick="demoMixed()">▶ Run Mixed Destructuring Demo</button>
+
+            <div id="advancedOutput" class="result-area"></div>
+        </div>
+
+        <!-- Step 5: Destructuring in Functions -->
+        <div class="section">
+            <h2>⚡ Step 5: Destructuring in Functions</h2>
+            
+            <h3>5.1 Destructuring Array Parameters</h3>
+            <div class="code-block">
+                // Destructuring array in function parameters<br>
+                function sum([a, b, c]) {<br>
+                &nbsp;&nbsp;return a + b + c;<br>
+                }<br>
+                const result = sum([10, 20, 30]);<br>
+                console.log(result);
+            </div>
+            <button onclick="demoFunctionArray()">▶ Run Function Array Destructuring</button>
+
+            <h3>5.2 Destructuring Object Parameters</h3>
+            <div class="code-block">
+                // Destructuring object in function parameters<br>
+                function displayUser({ name, age, email = 'Not provided' }) {<br>
+                &nbsp;&nbsp;return `Name: ${name}, Age: ${age}, Email: ${email}`;<br>
+                }<br>
+                const userInfo = displayUser({ name: 'Bob', age: 28 });<br>
+                console.log(userInfo);
+            </div>
+            <button onclick="demoFunctionObject()">▶ Run Function Object Destructuring</button>
+
+            <h3>5.3 Returning Destructured Values</h3>
+            <div class="code-block">
+                // Returning array and destructuring<br>
+                function getCoordinates() {<br>
+                &nbsp;&nbsp;return [40.7128, -74.0060];<br>
+                }<br>
+                const [latitude, longitude] = getCoordinates();<br>
+                console.log(`Lat: ${latitude}, Lon: ${longitude}`);
+            </div>
+            <button onclick="demoReturnArray()">▶ Run Return Values Demo</button>
+
+            <h3>5.4 Swapping Variables with Destructuring</h3>
+            <div class="code-block">
+                // Swapping variables without temp variable<br>
+                let x = 10, y = 20;<br>
+                [x, y] = [y, x];<br>
+                console.log(`x: ${x}, y: ${y}`);
+            </div>
+            <button onclick="demoSwap()">▶ Run Swap Variables Demo</button>
+
+            <div id="functionOutput" class="result-area"></div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2>📝 Run All Examples</h2>
+            <button onclick="runAllExamples()">▶ Run All Examples</button>
+            <button onclick="clearAllOutputs()" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🗑️ Clear All Outputs</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
